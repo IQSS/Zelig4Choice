@@ -1,0 +1,7 @@
+bivariate.zelig
+===============
+A zelig module containing four bivariate statistical models:
+* Weibull
+* Binomial Logit
+* Binomial Probit
+* Bivariate least-squares
