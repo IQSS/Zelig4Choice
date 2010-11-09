@@ -1,33 +1,29 @@
+# library
 library(bivariate.zelig)
 
-# Load the sample data:
+
+# data
 data(sanction)
 
-#####  Example 1: Basics #####
 
-# Note that by default, zelig() estimates two parameter estimates
-# for explanatory variable as well as the correlation parameter; this
-# formulation is parametrically independent (estimating separate effects
-# for each explanatory variable), but stochastically dependent because
-# the models share an odds ratio.  See Example 2 for a more constrained
-# form of stochastic dependence.a list of at most 3 elements (corresponding to the 3
-# equations).  Each element consists of a character vector of the
-# variables omitted from each equation.  
+# zelig
 z.out1 <- zelig(cbind(import, export) ~ coop + cost + target,
-                model = "blogit", data = sanction)
+                model = "blogit",
+                data = sanction
+                )
 
 
-# Generate baseline values for the explanatory variables (with cost set
-# to 1, net gain to sender) and alternative values (with cost set to 4,
-# major loss to sender):
+# setx
 x.low <- setx(z.out1, cost = 1)
 x.high <- setx(z.out1, cost = 4)
 
-stop("!!!!!!")
 
 # Simulate fitted values and first differences:  
 
 s.out1 <- sim(z.out1, x = x.low, x1 = x.high)
+
+stop("...")
+
 print(summary(s.out1))
 
 # Plot the s.out
