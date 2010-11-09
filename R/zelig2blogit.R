@@ -1,4 +1,4 @@
-zelig2.blogit <- function(model, formula, ..., data) {
+zelig2blogit <- function(model, formula, ..., data) {
   # construct
   splitted <- split.formula(formula)
   constraints <- parse.formula(formula)
