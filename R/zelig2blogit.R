@@ -1,12 +1,12 @@
 zelig2blogit <- function(model, formula, ..., data) {
-  # construct
-  splitted <- split.formula(formula)
-  constraints <- parse.formula(formula)
-
-  #
+  # ...
+  formula <- parse.formula(formula, model)
+  tmp <- cmvglm(formula, model, 3)
+  
+  # return list
   list(vglm,
-       formula = formula,
-       constraints = constraints,
+       formula = tmp$formula,
+       constraints = tmp$constraints,
        family = as.name("blogit"),
        "data"
        )

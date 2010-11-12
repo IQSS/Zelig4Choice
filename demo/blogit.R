@@ -1,35 +1,33 @@
 # library
+
+#library(Zelig)
 library(bivariate.zelig)
 
 
 # data
 data(sanction)
 
-
 # zelig
-z.out1 <- zelig(cbind(import, export) ~ coop + cost + target,
-                model = "blogit",
-                data = sanction
-                )
+## z.out1 <- zelig(cbind(import, export) ~ coop + cost + target,
+##                 model = "blogit",
+##                 data = sanction
+##                 )
+
+## # setx
+## x.low <- setx(z.out1, cost = 1)
+## x.high <- setx(z.out1, cost = 4)
+
+## # Simulate fitted values and first differences:  
+
+## s.out1 <- sim(z.out1, x = x.low, x1 = x.high)
 
 
-# setx
-x.low <- setx(z.out1, cost = 1)
-x.high <- setx(z.out1, cost = 4)
 
+## print(summary(s.out1))
 
-# Simulate fitted values and first differences:  
+## # Plot the s.out
 
-s.out1 <- sim(z.out1, x = x.low, x1 = x.high)
-
-stop("...")
-
-print(summary(s.out1))
-
-# Plot the s.out
-
-#plot(s.out1)
-
+## plot(s.out1)
 
 ##### Example 2: Joint Estimation of a Model with        #####
 #####            Different Sets of Explanatory Variables #####
@@ -37,22 +35,22 @@ print(summary(s.out1))
 # Estimate the statistical model, with import a function of coop
 # in the first equation and export a function of cost and target
 # in the second equation, by using the zeros argument:
-z.out2 <- zelig(list(mu1=import~coop,mu2=export~cost+target), 
-                model = "blogit", data = sanction)
-user.prompt()
-print(summary(z.out2))
-user.prompt()
+z.out2 <- zelig(list(mu1=import~coop,mu2=export~cost+target),
+                model = "blogit",
+                data = sanction
+                )
+
 # Set the explanatory variables to their default values:
 x.out2 <- setx(z.out2)
 
 # Simulate draws from the posterior distribution:
-user.prompt()
+
 s.out2 <- sim(z.out2, x = x.out2)
-user.prompt()
+
 print(summary(s.out2))
 
 # Plotting marginal densities:
-user.prompt()
+
 plot(s.out2)
 
 ##### Example 3: Joint Estimation of a Parametrically #####
@@ -61,12 +59,12 @@ plot(s.out2)
 # A bivariate model is parametrically dependent if Y1 and Y2 share
 # some or all explanatory variables, {\it and} the effects of the shared
 # explanatory variables are jointly estimated.  For example,
-user.prompt()
+
 z.out3 <- zelig(cbind(import, export) ~ coop + cost + target, 
                 constrain = list("1" = c("coop", "cost", "target"),
                                  "2" = c("coop", "cost", "target")),
                 model = "blogit", data = sanction)
-user.prompt()
+
 print(summary(z.out3))
 
 # Note that this model only returns one parameter estimate for each of
@@ -74,13 +72,13 @@ print(summary(z.out3))
 # parameter estimates for each of the explanatory variables.
 
 # Set values for the explanatory variables:
-user.prompt()
+stop("everything ended well")
 x.out3 <- setx(z.out3, cost = 1:4)
 
 # Draw simulated expected values:  
-user.prompt()
+
 s.out3 <- sim(z.out3, x = x.out3)
-user.prompt()
+
 print(summary(s.out3))
 
 
