@@ -4,7 +4,6 @@ param.blogit <- function(object, num=1000, bootstrap=FALSE) {
   list(
        simulations = mvrnorm(n=num, mu=res, Sigma=cov),
        alpha = NULL,
-       fam = binom2.or(),
-       linkinv = binom2.or()@inverse
+       fam = binom2.or()
        )
 }

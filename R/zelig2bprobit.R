@@ -1,0 +1,13 @@
+zelig2bprobit <- function(model, formula, ..., data) {
+  # ...
+  formula <- parse.formula(formula, model)
+  tmp <- cmvglm(formula, model, 3)
+  
+  # return list
+  list(vglm,
+       formula = tmp$formula,
+       constraints = tmp$constraints,
+       family = as.name("bprobit"),
+       "data"
+       )
+}
