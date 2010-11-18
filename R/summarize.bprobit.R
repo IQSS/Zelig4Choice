@@ -1,1 +1,0 @@
-summarize.bprobit <- summarize.blogit

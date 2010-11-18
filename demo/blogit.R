@@ -8,19 +8,20 @@ library(bivariate.zelig)
 data(sanction)
 
 # zelig
-## z.out1 <- zelig(cbind(import, export) ~ coop + cost + target,
-##                 model = "blogit",
-##                 data = sanction
-##                 )
+z.out1 <- zelig(cbind(import, export) ~ coop + cost,
+                model = "blogit",
+                data = sanction
+                )
 
-## # setx
-## x.low <- setx(z.out1, cost = 1)
-## x.high <- setx(z.out1, cost = 4)
+# setx
+x.low <- setx(z.out1, cost = 1)
+x.high <- setx(z.out1, cost = 4)
 
-## # Simulate fitted values and first differences:  
+# Simulate fitted values and first differences:  
 
-## s.out1 <- sim(z.out1, x = x.low, x1 = x.high)
+s.out1 <- sim(z.out1, x = x.low, x1 = x.high)
 
+summary(s.out1)
 
 
 ## print(summary(s.out1))
@@ -65,21 +66,21 @@ z.out3 <- zelig(cbind(import, export) ~ coop + cost + target,
                                  "2" = c("coop", "cost", "target")),
                 model = "blogit", data = sanction)
 
-print(summary(z.out3))
+summary(z.out3)
 
 # Note that this model only returns one parameter estimate for each of
 # coop, cost, and target.  Contrast this to Example 1 which returns two
 # parameter estimates for each of the explanatory variables.
 
 # Set values for the explanatory variables:
-stop("everything ended well")
-x.out3 <- setx(z.out3, cost = 1:4)
+## stop("everything ended well")
+## x.out3 <- setx(z.out3, cost = 1:4)
 
-# Draw simulated expected values:  
+## # Draw simulated expected values:  
 
-s.out3 <- sim(z.out3, x = x.out3)
+## s.out3 <- sim(z.out3, x = x.out3)
 
-print(summary(s.out3))
+## print(summary(s.out3))
 
 
 
