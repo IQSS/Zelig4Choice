@@ -7,7 +7,9 @@ z.out1 <- zelig(cbind(import, export) ~ coop + cost + target,
                 )
 
 
-print(summary(z.out1))
+z.out1
+
+stop()
 
 
 x.low <- setx(z.out1, cost = 1)

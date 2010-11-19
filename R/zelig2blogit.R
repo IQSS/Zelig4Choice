@@ -4,10 +4,10 @@ zelig2blogit <- function(model, formula, ..., data) {
   tmp <- cmvglm(formula, model, 3)
   
   # return list
-  list(vglm,
+  list("vglm",
        formula = tmp$formula,
        constraints = tmp$constraints,
-       family = as.name("blogit"),
+       family = blogit,
        "data"
        )
 }
