@@ -1,5 +1,5 @@
-zelig2blogit <- function(model, formula, ..., data) {
-  formula <- parse.formula(formula, model)
+zelig2blogit <- function(formula, ..., data) {
+  formula <- parse.formula(formula, "blogit")
   tmp <- cmvglm(formula, model, 3)
 
   

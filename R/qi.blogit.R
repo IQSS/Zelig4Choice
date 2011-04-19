@@ -77,7 +77,7 @@ qi.blogit <- function(object, x, x1=NULL, y=NULL, param, num=1000) {
   
   #
   qi <- list("Predicted Probabilities: Pr(Y1=k|X)" = ev,
-             "Predicted Values: Y=k|X" = apply(pr, 2, as.character)
+             "Predicted Values: Y=k|X" = pr 
              )
 
   # compute first-differences and risk ratios
@@ -219,7 +219,8 @@ qi.blogit <- function(object, x, x1=NULL, y=NULL, param, num=1000) {
                     "(Y1=1, Y2=0)",
                     "(Y1=1, Y2=1)"
                     )
-
+  pr <- apply(pr, 2, as.character)
+  levels(pr) <- c("0","1")
   # return
   pr
 }

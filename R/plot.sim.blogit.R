@@ -28,7 +28,6 @@ plot.sim.blogit <- function(obj, xlab = "",
   # instantiate iterator object
   qi.iter <- iter(obj$qi)
 
-
   repeat {
     # get qi element
     item.qi <- try(nextElem(qi.iter), silent=TRUE)

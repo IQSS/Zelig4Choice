@@ -1,5 +1,5 @@
-zelig2bprobit <- function(model, formula, ..., data) {
-  formula <- parse.formula(formula, model)
+zelig2bprobit <- function(formula, ..., data) {
+  formula <- parse.formula(formula, "bprobit")
   tmp <- cmvglm(formula, model, 3)
 
   
