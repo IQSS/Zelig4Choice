@@ -1,0 +1,168 @@
+
+R version 2.12.1 (2010-12-16)
+Copyright (C) 2010 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # bprobit2
+> # Matt Owen
+> # Unit test based on a demo by Kosuke Imai and Olivia Lau
+> 
+> library(bivariate.zelig)
+Loading required package: Zelig
+Loading required package: MASS
+Loading required package: iterators
+Loading required package: survival
+Loading required package: splines
+
+   ZELIG (Versions  4.0-0 , built:  2010-09-28 )
+
++----------------------------------------------------------------+
++  Please refer to http://gking.harvard.edu/zelig for full       +
++  documentation or help.zelig() for help with commands and      +
++  models support by Zelig.                                      +
++                                                                +
++  Zelig project citations:                                      +
++    Kosuke Imai, Gary King, and Olivia Lau.  (2009).            +
++    ``Zelig: Everyone's Statistical Software,''                 +
++    http://gking.harvard.edu/zelig                              +
++   and                                                          +
++    Kosuke Imai, Gary King, and Olivia Lau. (2008).             +
++    ``Toward A Common Framework for Statistical Analysis        +
++    and Development,'' Journal of Computational and             +
++    Graphical Statistics, Vol. 17, No. 4 (December)             +
++    pp. 892-913.                                                +
++                                                                +
++   To cite individual Zelig models, please use the citation     +
++   format printed with each model run and in the documentation. +
++----------------------------------------------------------------+
+
+Loading required package: VGAM
+Loading required package: stats4
+
+Attaching package: 'VGAM'
+
+The following object(s) are masked from 'package:splines':
+
+    bs, ns
+
+The following object(s) are masked from 'package:MASS':
+
+    huber
+
+The following object(s) are masked from 'package:stats':
+
+    biplot, case.names, coefficients, df.residual, fitted,
+    fitted.values, formula, poly, residuals, variable.names, weights
+
+The following object(s) are masked from 'package:base':
+
+    identity, print, scale.default
+
+> 
+> data(sanction)
+> 
+> z.out <- zelig(list(
++                     mu1 = import ~ coop,
++                     mu2 = export ~ cost + target
++                     ), 
++                model = "bprobit",
++                data = sanction
++                )
+The following object(s) are masked from 'package:MASS':
+
+    coop
+
+
+How to cite this model in Zelig:
+  Olivia Lau, Kosuke Imai, and Gary King. 2011.
+  "bprobit: Bivariate Probit Regression for Dichotomous Dependent Variables"
+  in Kosuke Imai, Gary King, and Olivia Lau, "Zelig: Everyone's Statistical Software,"
+  http://gking.harvard.edu/zelig
+ 
+> 
+> x.out <- setx(z.out)
+> 
+> s.out <- sim(z.out, x = x.out)
+> 
+> 
+> # zelig results
+> plot(s.out)
+> summary(z.out)
+
+Call:
+vglm(formula = stored.formula, family = stored.family, data = stored.data, 
+    constraints = stored.constraints)
+
+Pearson Residuals:
+                Min       1Q    Median      3Q    Max
+probit(mu1) -1.9694 -0.73458 -0.533418 0.82990 1.9926
+probit(mu2) -5.3926 -0.52586  0.048458 0.62598 3.0118
+rhobit(rho) -3.5111 -0.41461  0.232272 0.38657 3.8547
+
+Coefficients:
+                 Value Std. Error  t value
+(Intercept):1 -1.26134    0.33208 -3.79833
+(Intercept):2 -1.91794    0.57847 -3.31556
+(Intercept):3 -0.30831    0.45195 -0.68217
+coop           0.50579    0.15902  3.18057
+cost           1.58805    0.35903  4.42314
+target        -0.33105    0.25627 -1.29180
+
+Number of linear predictors:  3 
+
+Names of linear predictors: probit(mu1), probit(mu2), rhobit(rho)
+
+Dispersion Parameter for binom2.rho family:   1
+
+Residual Deviance: 167.5796 on 228 degrees of freedom
+
+Log-likelihood: -83.7898 on 228 degrees of freedom
+
+Number of Iterations: 8 
+> vcov(z.out)
+              (Intercept):1 (Intercept):2 (Intercept):3          coop
+(Intercept):1  0.1102762866  -0.004963771 -0.0023889244 -0.0470164554
+(Intercept):2 -0.0049637712   0.334622458 -0.0037697068  0.0017278682
+(Intercept):3 -0.0023889244  -0.003769707  0.2042563101  0.0009187029
+coop          -0.0470164554   0.001727868  0.0009187029  0.0252889482
+cost           0.0024605327  -0.107913298  0.0030515411 -0.0014212730
+target        -0.0006997195  -0.060719946 -0.0005948008  0.0004027544
+                      cost        target
+(Intercept):1  0.002460533 -0.0006997195
+(Intercept):2 -0.107913298 -0.0607199462
+(Intercept):3  0.003051541 -0.0005948008
+coop          -0.001421273  0.0004027544
+cost           0.128903851 -0.0485230589
+target        -0.048523059  0.0656750065
+> coef(z.out)
+(Intercept):1 (Intercept):2 (Intercept):3          coop          cost 
+   -1.2613438    -1.9179368    -0.3083054     0.5057903     1.5880477 
+       target 
+   -0.3310513 
+> 
+> # setx results
+> x.out
+
+model name: bprobit     
+formula:    cbind(import, export) ~ coop + cost + target
+<environment: 0xd5f1eb0>
+cond:       No
+results of fn:
+  coop   = 1.80769230769231
+  cost   = 1.80769230769231
+  target = 2.14102564102564
+
+> 
