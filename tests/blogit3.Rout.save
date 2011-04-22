@@ -98,8 +98,8 @@ How to cite this model in Zelig:
 > summary(z.out)
 
 Call:
-vglm(formula = stored.formula, family = stored.family, data = stored.data, 
-    constraints = stored.constraints)
+vglm(formula = cbind(import, export) ~ coop + cost + target, 
+    family = stored.family, data = stored.data, constraints = stored.constraints)
 
 Pearson Residuals:
                 Min       1Q    Median      3Q    Max

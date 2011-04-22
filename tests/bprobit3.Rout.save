@@ -103,8 +103,8 @@ How to cite this model in Zelig:
 > summary(z.out)
 
 Call:
-vglm(formula = stored.formula, family = stored.family, data = stored.data, 
-    constraints = stored.constraints)
+vglm(formula = cbind(import, export) ~ coop + cost + target, 
+    family = stored.family, data = stored.data, constraints = stored.constraints)
 
 Pearson Residuals:
                 Min       1Q    Median      3Q    Max
@@ -158,7 +158,7 @@ target        -0.025124691  0.0314615895
 
 model name: bprobit     
 formula:    cbind(import, export) ~ coop + cost + target
-<environment: 0x176b1088>
+<environment: 0x1bc69958>
 cond:       No
 results of fn:
   coop   = 1.80769230769231

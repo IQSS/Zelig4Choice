@@ -103,8 +103,8 @@ How to cite this model in Zelig:
 > summary(z.out)
 
 Call:
-vglm(formula = stored.formula, family = stored.family, data = stored.data, 
-    constraints = stored.constraints)
+vglm(formula = cbind(import, export) ~ coop + cost, family = stored.family, 
+    data = stored.data, constraints = stored.constraints)
 
 Pearson Residuals:
                 Min       1Q   Median      3Q    Max
@@ -160,7 +160,7 @@ cost:2        -0.064493076 -0.006628481  0.316399328
 
 model name: blogit      
 formula:    cbind(import, export) ~ coop + cost
-<environment: 0x11f7eb80>
+<environment: 0x1c433fa8>
 cond:       No
 results of fn:
   coop = 1.80769230769231
@@ -170,7 +170,7 @@ results of fn:
 
 model name: blogit      
 formula:    cbind(import, export) ~ coop + cost
-<environment: 0x11f7eb80>
+<environment: 0x1c433fa8>
 cond:       No
 results of fn:
   coop = 1.80769230769231
