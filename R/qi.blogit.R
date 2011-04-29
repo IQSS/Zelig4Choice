@@ -1,7 +1,20 @@
-qi.blogit <- function(object, x, x1=NULL, y=NULL, param, num=1000) {
+#' Compute quantities of interest for 'blogit' Zelig models
+#' @usage \method{qi}{blogit}(obj, x, x1=NULL, y=NULL, num=1000, param=NULL)
+#' @S3method qi blogit
+#' @param obj a 'zelig' object
+#' @param x a 'setx' object or NULL
+#' @param x1 an optional 'setx' object
+#' @param y this parameter is reserved for simulating average treatment effects,
+#'   though this feature is currentlysupported by only a handful of models
+#' @param num an integer specifying the number of simulations to compute
+#' @param param a parameters object
+#' @return a list of key-value pairs specifying pairing titles of quantities of
+#'   interest with their simulations
+#' @author Matt Owen \email{mowen@@iq.harvard.edu}
+qi.blogit <- function(obj, x, x1=NULL, y=NULL, num=1000, param=NULL) {
   # go back and comment on this later
   #   (pretty straightforward though)
-  s4object <- GetObject(object)
+  s4object <- GetObject(obj)
   v <- list()
   constr <- s4object@constraints
   all.coef <- NULL
@@ -98,50 +111,50 @@ qi.blogit <- function(object, x, x1=NULL, y=NULL, param, num=1000) {
 
 
   # average treatment effect code
-  if (!is.null(y)) {
-    warning("The `Average Treatment Effect` for this model is ",
-            "currently under construction, and may give unreliable",
-            "results.  Sorry for any inconvenience."
-            )
-    
-    # initialize temp variables
-    tmp.ev <- tmp.pr <- array(NA, dim=dim(qi[[1]]))
-
-    # initialize average treatment effect variables
-    att.ev <- att.pr <- matrix(NA, nrow=nrow(ev), ncol=ncol(ev))
-
-    #
-    yvar <- .make.truth.table(y)
-    pr.idx <- matrix(NA, nrow=nrow(pr), 4)
-    
-    #
-    pr.idx[,1] <- as.integer(pr[,1])
-    pr.idx[,2] <- as.integer(pr[,2])
-    pr.idx[,3] <- as.integer(pr[,3])
-    pr.idx[,4] <- as.integer(pr[,4])
-
-    # name columns in the correct fashion
-    colnames(att.ev) <- colname(att.pr) <- c("(Y1=0, Y2=0)",
-                                             "(Y1=0, Y2=1)",
-                                             "(Y1=1, Y2=0)",
-                                             "(Y1=1, Y2=1)"
-                                             )
-
-    #
-    for (k in 1:3) {
-      for (j in 1:nrow(ev)) {
-        tmp.ev[j,k] <- yvar[,k] - ev[j,k]
-        tmp.pr[j,k] <- yvar[,k] - pr.idx[j,k]
-      }
-
-      att.ev <- apply(temp.ev[,k], 1, mean)
-      att.pr <- apply(temp.pr[,k], 1, mean)
-    }
-
-    #
-    qi$"Average Treatment Effect for the Treated: Y - E[...]" <- att.ev
-    qi$"Average Treatment Effect for the Treated: Y - Pr[...]" <- att.pr
-  }
+#   if (!is.null(y)) {
+#     warning("The `Average Treatment Effect` for this model is ",
+#             "currently under construction, and may give unreliable",
+#             "results.  Sorry for any inconvenience."
+#             )
+#     
+#     # initialize temp variables
+#     tmp.ev <- tmp.pr <- array(NA, dim=dim(qi[[1]]))
+# 
+#     # initialize average treatment effect variables
+#     att.ev <- att.pr <- matrix(NA, nrow=nrow(ev), ncol=ncol(ev))
+# 
+#     #
+#     yvar <- .make.truth.table(y)
+#     pr.idx <- matrix(NA, nrow=nrow(pr), 4)
+#     
+#     #
+#     pr.idx[,1] <- as.integer(pr[,1])
+#     pr.idx[,2] <- as.integer(pr[,2])
+#     pr.idx[,3] <- as.integer(pr[,3])
+#     pr.idx[,4] <- as.integer(pr[,4])
+# 
+#     # name columns in the correct fashion
+#     colnames(att.ev) <- colname(att.pr) <- c("(Y1=0, Y2=0)",
+#                                              "(Y1=0, Y2=1)",
+#                                              "(Y1=1, Y2=0)",
+#                                              "(Y1=1, Y2=1)"
+#                                              )
+# 
+#     #
+#     for (k in 1:3) {
+#       for (j in 1:nrow(ev)) {
+#         tmp.ev[j,k] <- yvar[,k] - ev[j,k]
+#         tmp.pr[j,k] <- yvar[,k] - pr.idx[j,k]
+#       }
+# 
+#       att.ev <- apply(temp.ev[,k], 1, mean)
+#       att.pr <- apply(temp.pr[,k], 1, mean)
+#     }
+# 
+#     #
+#     qi$"Average Treatment Effect for the Treated: Y - E[...]" <- att.ev
+#     qi$"Average Treatment Effect for the Treated: Y - Pr[...]" <- att.pr
+#   }
 
   # return
   qi

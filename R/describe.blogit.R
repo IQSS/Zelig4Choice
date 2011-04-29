@@ -1,3 +1,9 @@
+#' Describe the Citation of the \code{blogit} Model
+#' @S3method describe blogit
+#' @export
+#' @param ... dummy parameters
+#' @return a \code{description} object used to cite the \code{blogit} model
+#' @author Matt Owen, Olivia Lau, and Kosuke Imai
 describe.blogit <- function(...) {
   text <- "Bivariate Logistic Regression for Dichotomous Dependent Variables"
 

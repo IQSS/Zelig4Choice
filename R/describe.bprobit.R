@@ -1,3 +1,9 @@
+#' Describe the Citation of the \code{bprobit} Model
+#' @S3method describe bprobit
+#' @export
+#' @param ... dummy parameters
+#' @return a \code{description} object used to cite the \code{bprobit} model
+#' @author Matt Owen, Olivia Lau, and Kosuke Imai
 describe.bprobit <- function(...) {
   text <- "Bivariate Probit Regression for Dichotomous Dependent Variables"
 
