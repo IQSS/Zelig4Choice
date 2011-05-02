@@ -1,35 +1,21 @@
 \name{bivariate.zelig-package}
-\alias{bivariate.zelig-package}
-\alias{bivariate.zelig}
-\docType{package}
-\title{
-What the package does (short line)
-~~ package title ~~
-}
-\description{
-More about what it does (maybe more than one line)
-~~ A concise (1-5 lines) description of the package ~~
-}
-\details{
+\title{Bivariate Zelig Models...}
+\description{Bivariate Zelig Models}
+\details{Add-on pack
+
 \tabular{ll}{
 Package: \tab bivariate.zelig\cr
-Type: \tab Package\cr
 Version: \tab 1.0\cr
-Date: \tab 2010-10-07\cr
-License: \tab GPL\cr
-LazyLoad: \tab yes\cr
-}
-~~ An overview of how to use the package, including the most important ~~
-~~ functions ~~
-}
-\author{
-Matthew Owen
-
-Maintainer: mowen@iq.harvard.edu
-}
-\references{
-
-}
-\keyword{ package }
-\seealso{
-}
+Date: \tab 2011-04-29\cr
+Depends: \tab Zelig, VGAM\cr
+Suggests: mvtnorm, MCMCpack\cr
+License: \tab GPL version 2 or newer\cr
+URL: \tab http://gking.harvard.edu/zelig\cr
+}}
+\alias{bivaraite.zelig}
+\docType{package}
+\author{Matt Owen \email{mowen@iq.harvard.edu}, Kosuke Imai, Olivia Lau,
+and Gary King 
+Maintainer: Matt Owen \email{monwe@iq.harvard.edu}}
+\keyword{package}
+\seealso{zelig setx sim}

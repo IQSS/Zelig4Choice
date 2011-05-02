@@ -158,7 +158,7 @@ target        -0.025124691  0.0314615895
 
 model name: bprobit     
 formula:    cbind(import, export) ~ coop + cost + target
-<environment: 0x1bc69958>
+<environment: 0xbb9d958>
 cond:       No
 results of fn:
   coop   = 1.80769230769231

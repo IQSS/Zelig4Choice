@@ -5,7 +5,12 @@ Version: 1.0
 Date: 2010-10-07
 Author: Matthew Owen
 Maintainer: <mowen@iq.harvard.edu>
-Description: Implements the Zelig interface and simulation processes for bivariate models
+Description: Implements the Zelig interface and simulation processes
+    for bivariate models
 Depends: Zelig, VGAM
 License: GPL
 LazyLoad: yes
+Collate: 'bivariate.zelig-package.R' 'blogit.R' 'bprobit.R'
+    'describe.blogit.R' 'describe.bprobit.R' 'param.blogit.R'
+    'param.bprobit.R' 'plot.sim.blogit.R' 'plot.sim.bprobit.R'
+    'qi.blogit.R' 'qi.bprobit.R' 'zelig2blogit.R' 'zelig2bprobit.R'

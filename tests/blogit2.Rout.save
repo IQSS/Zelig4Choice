@@ -159,7 +159,7 @@ target        -0.176352036  0.206547366
 
 model name: blogit      
 formula:    cbind(import, export) ~ coop + cost + target
-<environment: 0x17039b30>
+<environment: 0x3f26b30>
 cond:       No
 results of fn:
   coop   = 1.80769230769231

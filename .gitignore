@@ -1,0 +1,4 @@
+tests/*.pdf
+man/.*
+inst/doc/*.pdf
+inst/doc/vigpics/*
