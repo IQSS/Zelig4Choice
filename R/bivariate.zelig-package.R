@@ -1,7 +1,5 @@
 #' Bivariate Zelig Models
 #'
-#' Add-on pack
-#' 
 #' \tabular{ll}{
 #' Package: \tab bivariate.zelig\cr
 #' Version: \tab 1.0\cr
@@ -12,13 +10,15 @@
 #' URL: \tab http://gking.harvard.edu/zelig\cr
 #' }
 #'
+#' Add-on pack for Zelig, containing a bivariate probit and logit regession
+#' 
 #' @name bivariate.zelig-package
 #' @aliases bivaraite.zelig
 #' @docType package
 #' @author Matt Owen \email{mowen@@iq.harvard.edu}, Kosuke Imai, Olivia Lau,
 #'   and Gary King 
-#'         Maintainer: Matt Owen \email{monwe@@iq.harvard.edu}
+#'
+#'   Maintainer: Matt Owen \email{mowen@@iq.harvard.edu}
 #' @keywords package
 #' @importFrom Zelig describe param qi
-#' @seealso zelig setx sim
 NULL

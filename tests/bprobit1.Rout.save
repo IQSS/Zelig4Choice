@@ -27,7 +27,7 @@ Loading required package: iterators
 Loading required package: survival
 Loading required package: splines
 
-   ZELIG (Versions  4.0-0 , built:  2010-09-28 )
+   ZELIG (Versions  4.0-2 , built:  2011-04-27 )
 
 +----------------------------------------------------------------+
 +  Please refer to http://gking.harvard.edu/zelig for full       +
@@ -53,6 +53,10 @@ Loading required package: VGAM
 Loading required package: stats4
 
 Attaching package: 'VGAM'
+
+The following object(s) are masked from 'package:Zelig':
+
+    Max
 
 The following object(s) are masked from 'package:splines':
 
@@ -178,7 +182,7 @@ target:2       0.0651902895
 
 model name: bprobit     
 formula:    cbind(import, export) ~ coop + cost + target
-<environment: 0xaae3590>
+<environment: 0x104922e0>
 cond:       No
 results of fn:
   coop   = 1.80769230769231
@@ -189,7 +193,7 @@ results of fn:
 
 model name: bprobit     
 formula:    cbind(import, export) ~ coop + cost + target
-<environment: 0xaae3590>
+<environment: 0x104922e0>
 cond:       No
 results of fn:
   coop   = 1.80769230769231
