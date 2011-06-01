@@ -8,7 +8,7 @@
 #' @author Matt Owen \email{mowen@@iq.harvard.edu}
 zelig2blogit <- function(formula, ..., data) {
   formula <- parse.formula(formula, "blogit")
-  tmp <- cmvglm(formula, model, 3)
+  tmp <- cmvglm(formula, "blogit", 3)
 
   
   # return list

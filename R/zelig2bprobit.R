@@ -8,7 +8,7 @@
 #' @author Matt Owen \email{mowen@@iq.harvard.edu}
 zelig2bprobit <- function(formula, ..., data) {
   formula <- parse.formula(formula, "bprobit")
-  tmp <- cmvglm(formula, model, 3)
+  tmp <- cmvglm(formula, "bprobit", 3)
 
   
   # return list

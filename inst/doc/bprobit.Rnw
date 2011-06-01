@@ -32,8 +32,6 @@
 @
 
 <<loadLibrary, echo=F,results=hide>>=
-pkg <- search()
-if(!length(grep("package:Zelig",pkg)))
 library(bivariate.zelig)
 @ 
 

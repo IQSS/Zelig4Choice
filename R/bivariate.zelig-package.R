@@ -2,7 +2,7 @@
 #'
 #' \tabular{ll}{
 #' Package: \tab bivariate.zelig\cr
-#' Version: \tab 1.0\cr
+#' Version: \tab 1.0-1\cr
 #' Date: \tab 2011-04-29\cr
 #' Depends: \tab Zelig, VGAM\cr
 #' Suggests: mvtnorm, MCMCpack\cr
