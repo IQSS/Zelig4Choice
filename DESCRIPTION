@@ -1,7 +1,7 @@
 Package: bivariate.zelig
 Type: Package
 Title: bivariate statistical models
-Version: 1.0-1
+Version: 1.0-2
 Date: 2010-10-07
 Author: Matthew Owen
 Maintainer: <mowen@iq.harvard.edu>
