@@ -4,7 +4,7 @@
 #' Package: \tab bivariate.zelig\cr
 #' Version: \tab 1.0-2\cr
 #' Date: \tab 2011-04-29\cr
-#' Depends: \tab Zelig, VGAM\cr
+#' Depends: \tab Zelig (>= 4.0-4), VGAM\cr
 #' Suggests: mvtnorm, MCMCpack\cr
 #' License: \tab GPL version 2 or newer\cr
 #' URL: \tab http://gking.harvard.edu/zelig\cr

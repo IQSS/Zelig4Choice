@@ -7,7 +7,7 @@ Author: Matthew Owen
 Maintainer: <mowen@iq.harvard.edu>
 Description: Implements the Zelig interface and simulation processes
     for bivariate models
-Depends: Zelig, VGAM
+Depends: Zelig (>= 4.0-4), VGAM
 License: GPL
 LazyLoad: yes
 Collate: 'bivariate.zelig-package.R' 'blogit.R' 'bprobit.R'
