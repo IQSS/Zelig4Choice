@@ -40,19 +40,13 @@ plot.sim.blogit <- function(x, xlab = "",
   # instantiate iterator object
   qi.iter <- iter(x$qi)
 
-  repeat {
-    # get qi element
-    item.qi <- try(nextElem(qi.iter), silent=TRUE)
+  qi <- x$qi
+  labels <- names(attr(qi, '.index'))
+  k <- 0
+  size <- length(labels)
 
-    # if it is the end of the list
-    if (inherits(item.qi, "try-error"))
-      break
-
-    # for code-clarity
-    key <- item.qi$key
-    val <- item.qi$value
-
-    #
+  for (key in labels) {
+    val <- qi[[key]]
 
     if (key == "Predicted Values: Y=k|X") {
       total <- sum(as.integer(val))
