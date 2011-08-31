@@ -37,9 +37,6 @@ plot.sim.blogit <- function(x, xlab = "",
   par(mfrow = c(k, 1))
 
 
-  # instantiate iterator object
-  qi.iter <- iter(x$qi)
-
   qi <- x$qi
   labels <- names(attr(qi, '.index'))
   k <- 0
