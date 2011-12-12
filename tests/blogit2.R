@@ -2,7 +2,7 @@
 # Matt Owen
 # Unit test based on a demo by Kosuke Imai and Olivia Lau
 
-library(bivariate.zelig)
+library(ZeligBivariate)
 
 data(sanction)
 
