@@ -14,7 +14,7 @@ param.bprobit <- function(obj, num=1000, ...) {
   list(
        simulations = mvrnorm(n=num, mu=res, Sigma=cov),
        alpha = NULL,
-       fam = binom2.rho()
+       linkinv = binom2.rho()@linkinv
        )
 }
 

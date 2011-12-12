@@ -1,13 +1,13 @@
-Package: bivariate.zelig
+Package: ZeligBivariate
 Type: Package
 Title: bivariate statistical models
-Version: 1.0-2
+Version: 1.0-3
 Date: 2010-10-07
 Author: Matthew Owen
 Maintainer: <mowen@iq.harvard.edu>
 Description: Implements the Zelig interface and simulation processes
     for bivariate models
-Depends: Zelig (>= 4.0-5), VGAM
+Depends: Zelig (>= 4.0-6), VGAM (>= 0.8-4)
 License: GPL
 LazyLoad: yes
 Collate: 'bivariate.zelig-package.R' 'blogit.R' 'bprobit.R'

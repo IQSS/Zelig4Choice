@@ -189,7 +189,7 @@ qi.blogit <- function(obj, x, x1=NULL, y=NULL, num=1000, param=NULL) {
 
 
   # compute inverse (theta)
-  ev <- object@family@inverse(sim.eta)
+  ev <- object@family@linkinv(sim.eta)
 
   # assign correct column names
   colnames(ev) <- c("Pr(Y1=0, Y2=0)",
