@@ -32,7 +32,7 @@
 @
 
 <<loadLibrary, echo=F,results=hide>>=
-library(ZeligBivariate)
+library(ZeligMultivariate)
 @ 
 
 \section{{\tt bprobit}: Bivariate Logistic Regression for Two
@@ -389,7 +389,7 @@ in the VGAM library.  Additional documentation is available at
 
 
 \bibliographystyle{plain}
-\bibliography{ZeligBivariate}
+\bibliography{ZeligMultivariate}
 <<afterpkgs, echo=FALSE>>=
  after<-search()
  torm<-setdiff(after,before)

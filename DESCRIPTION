@@ -1,16 +1,17 @@
-Package: ZeligBivariate
-Type: Package
-Title: bivariate statistical models
-Version: 1.0-3
-Date: 2010-10-07
-Author: Matthew Owen
+Package: ZeligMultivariate
 Maintainer: <mowen@iq.harvard.edu>
+License: GPL
+Title: bivariate statistical models
+Type: Package
+LazyLoad: yes
+Author: Matt Owen, Kosuke Imai, Olivia Lau and Gary King
 Description: Implements the Zelig interface and simulation processes
     for bivariate models
+Version: 1.0-4
+Date: 2012-01-12
 Depends: Zelig (>= 4.0-6), VGAM (>= 0.8-4)
-License: GPL
-LazyLoad: yes
-Collate: 'bivariate.zelig-package.R' 'blogit.R' 'bprobit.R'
-    'describe.blogit.R' 'describe.bprobit.R' 'param.blogit.R'
-    'param.bprobit.R' 'plot.sim.blogit.R' 'plot.sim.bprobit.R'
-    'qi.blogit.R' 'qi.bprobit.R' 'zelig2blogit.R' 'zelig2bprobit.R'
+Collate: 'blogit.R' 'bprobit.R' 'describe.blogit.R'
+    'describe.bprobit.R' 'param.blogit.R' 'param.bprobit.R'
+    'plot.sim.blogit.R' 'plot.sim.bprobit.R' 'qi.blogit.R'
+    'qi.bprobit.R' 'zelig2blogit.R' 'zelig2bprobit.R'
+    'ZeligMultivariate-package.R'
