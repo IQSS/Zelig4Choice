@@ -1,15 +1,15 @@
-Package: ZeligMultivariate
+Package: ZeligChoice
 Maintainer: <mowen@iq.harvard.edu>
 License: GPL
-Title: bivariate statistical models
+Title: Zelig Choice Models
 Type: Package
 LazyLoad: yes
 Author: Matt Owen, Kosuke Imai, Olivia Lau and Gary King
-Description: Implements the Zelig interface and simulation processes
-    for bivariate models
-Version: 1.0-4
-Date: 2012-01-12
-Depends: Zelig (>= 4.0-6), VGAM (>= 0.8-4)
+Description: Add-on package for Zelig. Enables the use of a variety of logit
+    and probit regressions.
+Version: 0.7-0
+Date: 2012-10-03
+Depends: Zelig (>= 4.0-11), VGAM (>= 0.8-4)
 Collate: 'blogit.R' 'bprobit.R' 'describe.blogit.R'
     'describe.bprobit.R' 'param.blogit.R' 'param.bprobit.R'
     'plot.sim.blogit.R' 'plot.sim.bprobit.R' 'qi.blogit.R'

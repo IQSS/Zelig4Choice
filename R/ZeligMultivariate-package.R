@@ -2,8 +2,8 @@
 #'
 #' \tabular{ll}{
 #' Package: \tab ZeligMultivariate\cr
-#' Version: \tab 1.0-4\cr
-#' Date: \tab 2012-01-12\cr
+#' Version: \tab 0.7-0\cr
+#' Date: \tab 2012-10-03\cr
 #' Depends: \tab Zelig (>= 4.0-6), VGAM (>= 0.8-4)\cr
 #' Suggests: mvtnorm, MCMCpack\cr
 #' License: \tab GPL version 2 or newer\cr
@@ -22,3 +22,5 @@
 #' @keywords package
 #' @importFrom Zelig describe param qi
 NULL
+
+.fitted <- NULL
