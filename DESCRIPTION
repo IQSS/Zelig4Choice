@@ -9,9 +9,21 @@ Description: Add-on package for Zelig. Enables the use of a variety of logit
     and probit regressions.
 Version: 0.7-0
 Date: 2012-10-03
-Depends: Zelig (>= 4.0-11), VGAM (>= 0.8-4)
-Collate: 'blogit.R' 'bprobit.R' 'describe.blogit.R'
-    'describe.bprobit.R' 'param.blogit.R' 'param.bprobit.R'
-    'plot.sim.blogit.R' 'plot.sim.bprobit.R' 'qi.blogit.R'
-    'qi.bprobit.R' 'zelig2blogit.R' 'zelig2bprobit.R'
+Depends:
+    Zelig (>= 4.0-11),
+    VGAM (>= 0.8-4)
+Collate:
+    'blogit.R'
+    'bprobit.R'
+    'describe.blogit.R'
+    'describe.bprobit.R'
+    'param.blogit.R'
+    'param.bprobit.R'
+    'plot.sim.blogit.R'
+    'plot.sim.bprobit.R'
+    'qi.blogit.R'
+    'qi.bprobit.R'
+    'zelig2blogit.R'
+    'zelig2bprobit.R'
     'ZeligMultivariate-package.R'
+    'common-methods.R'

@@ -32,7 +32,7 @@
 @
 
 <<loadLibrary, echo=F,results=hide>>=
-library(ZeligMultivariate)
+library(ZeligChoice)
 @ 
 
 \section{{\tt bprobit}: Bivariate Logistic Regression for Two
