@@ -1,0 +1,177 @@
+
+R version 2.12.1 (2010-12-16)
+Copyright (C) 2010 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(ZeligMultinomial)
+Loading required package: Zelig
+Loading required package: MASS
+Loading required package: iterators
+Loading required package: survival
+Loading required package: splines
+
+   ZELIG (Versions  4.0-2 , built:  2011-04-27 )
+
++----------------------------------------------------------------+
++  Please refer to http://gking.harvard.edu/zelig for full       +
++  documentation or help.zelig() for help with commands and      +
++  models support by Zelig.                                      +
++                                                                +
++  Zelig project citations:                                      +
++    Kosuke Imai, Gary King, and Olivia Lau.  (2009).            +
++    ``Zelig: Everyone's Statistical Software,''                 +
++    http://gking.harvard.edu/zelig                              +
++   and                                                          +
++    Kosuke Imai, Gary King, and Olivia Lau. (2008).             +
++    ``Toward A Common Framework for Statistical Analysis        +
++    and Development,'' Journal of Computational and             +
++    Graphical Statistics, Vol. 17, No. 4 (December)             +
++    pp. 892-913.                                                +
++                                                                +
++   To cite individual Zelig models, please use the citation     +
++   format printed with each model run and in the documentation. +
++----------------------------------------------------------------+
+
+Loading required package: MNP
+MNP: R Package for Fitting the Multinomial Probit Model
+Version: 2.6-2
+Loading required package: VGAM
+Loading required package: stats4
+
+Attaching package: 'VGAM'
+
+The following object(s) are masked from 'package:Zelig':
+
+    Max
+
+The following object(s) are masked from 'package:splines':
+
+    bs, ns
+
+The following object(s) are masked from 'package:MASS':
+
+    huber
+
+The following object(s) are masked from 'package:stats':
+
+    biplot, case.names, coefficients, df.residual, fitted,
+    fitted.values, formula, poly, residuals, variable.names, weights
+
+The following object(s) are masked from 'package:base':
+
+    identity, print, scale.default
+
+> 
+> data(mexico)
+> 
+> z.out1 <- zelig(as.factor(vote88) ~ pristr + othcok + othsocok, model = "mlogit", 
++                data = mexico)
+
+
+How to cite this model in Zelig:
+  Matthew Owen, Olivia Lau, Kosuke Imai, and Gary King. 2011.
+  "mlogit: Multinomial Logistic Regression for Dependent Variables with Unordered Categorical Values"
+  in Kosuke Imai, Gary King, and Olivia Lau, "Zelig: Everyone's Statistical Software,"
+  http://gking.harvard.edu/zelig
+ 
+> 
+> 
+> x.weak <- setx(z.out1, pristr = 1)
+> x.strong <- setx(z.out1, pristr = 3)
+> 
+> 
+> s.out1 <- sim(z.out1, x = x.strong, x1 = x.weak)
+> 
+> summary(z.out1)
+
+Call:
+vglm(formula = vote88 ~ pristr + othcok + othsocok, family = stored.family, 
+    data = stored.data, constraints = stored.constraints)
+
+Pearson Residuals:
+                      Min       1Q   Median        3Q    Max
+log(mu[,1]/mu[,3]) -4.296 -0.68746  0.27912  0.701854 2.1022
+log(mu[,2]/mu[,3]) -2.245 -0.46900 -0.20781 -0.088704 4.5398
+
+Coefficients:
+                  Value Std. Error   t value
+(Intercept):1  2.870822   0.396380   7.24260
+(Intercept):2  0.399151   0.470131   0.84902
+pristr:1       0.596875   0.091239   6.54192
+pristr:2      -0.125028   0.104278  -1.19899
+othcok:1      -1.242593   0.112363 -11.05869
+othcok:2      -0.140656   0.133016  -1.05744
+othsocok:1    -0.302604   0.149605  -2.02269
+othsocok:2     0.049754   0.160966   0.30910
+
+Number of linear predictors:  2 
+
+Names of linear predictors: log(mu[,1]/mu[,3]), log(mu[,2]/mu[,3])
+
+Dispersion Parameter for multinomial family:   1
+
+Residual Deviance: 2360.571 on 2710 degrees of freedom
+
+Log-likelihood: -1180.286 on 2710 degrees of freedom
+
+Number of Iterations: 4 
+> vcov(z.out1)
+              (Intercept):1 (Intercept):2      pristr:1      pristr:2
+(Intercept):1    0.15711730    0.10911376 -0.0190639680 -0.0117937234
+(Intercept):2    0.10911376    0.22102282 -0.0122196624 -0.0251054656
+pristr:1        -0.01906397   -0.01221966  0.0083244740  0.0050479638
+pristr:2        -0.01179372   -0.02510547  0.0050479638  0.0108738680
+othcok:1        -0.03054069   -0.02344665  0.0011855514  0.0011022321
+othcok:2        -0.02366847   -0.04718212  0.0012797765  0.0024937753
+othsocok:1      -0.02935749   -0.01661194  0.0004188379  0.0002663793
+othsocok:2      -0.01679187   -0.03490896  0.0002663983  0.0004994706
+                   othcok:1      othcok:2    othsocok:1    othsocok:2
+(Intercept):1 -0.0305406947 -0.0236684732 -0.0293574888 -0.0167918739
+(Intercept):2 -0.0234466450 -0.0471821189 -0.0166119389 -0.0349089608
+pristr:1       0.0011855514  0.0012797765  0.0004188379  0.0002663983
+pristr:2       0.0011022321  0.0024937753  0.0002663793  0.0004994706
+othcok:1       0.0126255416  0.0087323630 -0.0014616394 -0.0007247951
+othcok:2       0.0087323630  0.0176932356 -0.0007976014 -0.0016706100
+othsocok:1    -0.0014616394 -0.0007976014  0.0223815378  0.0123557588
+othsocok:2    -0.0007247951 -0.0016706100  0.0123557588  0.0259099082
+> coef(z.out1)
+(Intercept):1 (Intercept):2      pristr:1      pristr:2      othcok:1 
+   2.87082228    0.39915066    0.59687519   -0.12502817   -1.24259270 
+     othcok:2    othsocok:1    othsocok:2 
+  -0.14065598   -0.30260414    0.04975403 
+> x.weak
+
+model name: mlogit      
+formula:    vote88 ~ pristr + othcok + othsocok
+<environment: 0x18c962b8>
+cond:       No
+results of fn:
+  othcok   = 2.19573215599706
+  othsocok = 1.39514348785872
+  pristr   = 1
+
+> x.strong
+
+model name: mlogit      
+formula:    vote88 ~ pristr + othcok + othsocok
+<environment: 0x18c962b8>
+cond:       No
+results of fn:
+  othcok   = 2.19573215599706
+  othsocok = 1.39514348785872
+  pristr   = 3
+
+> 

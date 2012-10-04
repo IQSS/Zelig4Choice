@@ -11,7 +11,8 @@ Version: 0.7-0
 Date: 2012-10-03
 Depends:
     Zelig (>= 4.0-11),
-    VGAM (>= 0.8-4)
+    VGAM (>= 0.8-4),
+    MNP
 Collate:
     'blogit.R'
     'bprobit.R'
@@ -40,3 +41,12 @@ Collate:
     'summarize.oprobit.R'
     'zelig2ologit.R'
     'zelig2oprobit.R'
+    'describe.mlogit.R'
+    'describe.mprobit.R'
+    'param.mlogit.R'
+    'param.mprobit.R'
+    'qi.mlogit.R'
+    'qi.mprobit.R'
+    'zelig2mlogit.R'
+    'zelig2mprobit.R'
+    'ZeligMultinomial-package.R'
