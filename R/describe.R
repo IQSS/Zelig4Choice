@@ -111,7 +111,7 @@ describe.mlogit <- function(...) {
 #' @S3method describe ologit
 describe.ologit <- function (...) {
   list(
-       author = c("Matt Owen", "Kosuke Imai", "Olivia Lau", "Gary King"),
+       authors = c("Matt Owen", "Kosuke Imai", "Olivia Lau", "Gary King"),
        model = "ologit",
        title = "Ordinal Probit Regression for Ordered Categorical Dependent Variables",
        year = 2011
@@ -121,7 +121,7 @@ describe.ologit <- function (...) {
 #' @S3method describe oprobit
 describe.oprobit <- function (...) {
   list(
-       author = c("Matt Owen", "Kosuke Imai", "Olivia Lau", "Gary King"),
+       authors = c("Matt Owen", "Kosuke Imai", "Olivia Lau", "Gary King"),
        model = "oprobit",
        title = "Ordinal Logit Regression for Ordered Categorical Dependent Variables",
        year = 2011

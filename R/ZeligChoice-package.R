@@ -24,10 +24,16 @@
 #' @name ZeligChoice-package.R
 #' @aliases ZeligChoice
 #' @docType package
-#' @author Matt Owen \email{mowen@@iq.harvard.edu}, Kosuke Imai, Olivia Lau,
-#'   and Gary King 
+#' @author
+#' Matt Owen \email{mowen@@iq.harvard.edu}, Kosuke Imai, Olivia Lau and Gary King 
+#' Maintainer: Matt Owen \email{mowen@@iq.harvard.edu}
+#' @examples
+#' demo("blogit")
+#' demo("bprobit")
+#' demo("mlogit")
+#' demo("ologit")
+#' demo("oprobit")
 #'
-#'   Maintainer: Matt Owen \email{mowen@@iq.harvard.edu}
 #' @keywords package logit probit ordinal categorical multinomial bivariate multivariate
 #' @importFrom Zelig describe param qi
 NULL

@@ -22,11 +22,17 @@
   \cr oprobit: \tab Ordinal Probit Model, implemented by
   ``polr'' \cr }
 }
+\examples{
+demo("blogit")
+demo("bprobit")
+demo("mlogit")
+demo("ologit")
+demo("oprobit")
+}
 \author{
   Matt Owen \email{mowen@iq.harvard.edu}, Kosuke Imai,
-  Olivia Lau, and Gary King
-
-  Maintainer: Matt Owen \email{mowen@iq.harvard.edu}
+  Olivia Lau and Gary King Maintainer: Matt Owen
+  \email{mowen@iq.harvard.edu}
 }
 \keyword{bivariate}
 \keyword{categorical}
