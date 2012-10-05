@@ -52,13 +52,12 @@ qi.mlogit <- function(obj, x=NULL, x1=NULL, y=NULL, num=1000, param=NULL) {
 }
 
 
-#' Split Names of Vectors into N-vectors
-#' This function is used to organize how variables are spread
-#' across the list of formulas
-#' @param constraints a constraints object
-#' @param ndim 
-#' @return a list of character-vectors
-#' @author Matt Owen and Olivia Lau and Kosuke Imai
+# Split Names of Vectors into N-vectors
+# This function is used to organize how variables are spread
+# across the list of formulas
+# @param constraints a constraints object
+# @param ndim 
+# @return a list of character-vectors
 construct.v <- function(constraints, ndim) {
   v <- rep(list(NULL), ndim)
 
@@ -81,15 +80,14 @@ construct.v <- function(constraints, ndim) {
   v
 }
 
-#' Simulate Expected Value for Multinomial Logit
-#' @param fitted a fitted model object
-#' @param constraints a constraints object
-#' @param all.coef all the coeficients
-#' @param x a setx object
-#' @param ndim an integer specifying the number of dimensions
-#' @param cnames a character-vector specifying the names of the columns
-#' @return a matrix of simulated values
-#' @author Matt Owen and Olivia Lau and Kosuke Imai \email{mowen@@iq.harvard.edu}
+# Simulate Expected Value for Multinomial Logit
+# @param fitted a fitted model object
+# @param constraints a constraints object
+# @param all.coef all the coeficients
+# @param x a setx object
+# @param ndim an integer specifying the number of dimensions
+# @param cnames a character-vector specifying the names of the columns
+# @return a matrix of simulated values
 ev.mlogit <- function (fitted, constraints, all.coef, x, ndim, cnames) {
   if (is.null(x))
     return(NA)
@@ -121,12 +119,11 @@ ev.mlogit <- function (fitted, constraints, all.coef, x, ndim, cnames) {
 }
 
 
-#' Simulate Predicted Values
-#' @param fitted a fitted model object
-#" @param ev the simulated expected values
-#' @param ynames ???
-#' @return a vector of simulated values
-#' @author Matt Owen and Olivia Lau and Kosuke Imai \email{mowen@@iq.harvard.edu}
+# Simulate Predicted Values
+# @param fitted a fitted model object
+# @param ev the simulated expected values
+# @param ynames ???
+# @return a vector of simulated values
 pv.mlogit <- function (fitted, ev, ynames) {
   if (all(is.na(ev)))
     return(NA)

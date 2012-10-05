@@ -1,15 +1,4 @@
-#' Plot Simulated Quantities of Interest for the \code{blogit} Zelig Model
-#' @usage
-#' \method{plot}{sim.blogit}(x, xlab="", user.par=FALSE, alt.col="red", ...)
 #' @S3method plot sim.blogit
-#' @param x a \code{sim.blogit} object containing quantities of interest
-#' @param xlab x-axis label
-#' @param user.par a \code{par} specifying the output layout
-#' @param alt.col the color of the histograms
-#' @param ... additional parameters to pass to the contour plot of expected
-#'   values
-#' @return the original \code{par} object
-#' @author Matthew Owen \email{mowen@@iq.harvard.edu}
 plot.sim.blogit <- function(x, xlab = "",
                             user.par = FALSE, alt.col = "red",
                             ...) {

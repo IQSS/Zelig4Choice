@@ -9,13 +9,13 @@ data(sanction)
 z.out <- zelig(
                cbind(import, export) ~ coop + cost,
                model = "blogit",
-               data = sanction
+               data = sanction[1:10, ]
                )
 
 x.low <- setx(z.out, cost = 1)
 x.high <- setx(z.out, cost = 4)
 
-s.out <- sim(z.out, x = x.low, x1 = x.high)
+s.out <- sim(z.out, x = x.low, x1 = x.high, num = 10)
 
 
 
@@ -40,15 +40,7 @@ x.out <- setx(z.out)
 
 s.out <- sim(z.out, x = x.out)
 
-
-
-#
 plot(s.out)
-summary(z.out)
-coef(z.out)
-vcov(z.out)
-
-x.out
 
 z.out <- zelig(
                cbind(import, export) ~ coop + cost + target, 
@@ -56,11 +48,11 @@ z.out <- zelig(
                  "1" = c("coop", "cost", "target"),
                  "2" = c("coop", "cost", "target")
                  ),
-               model = "blogit", data = sanction
+               model = "blogit",
+               data = sanction[1:10, ]
                )
 
 
-summary(z.out)
 
 z.out <- zelig(
                cbind(import, export) ~ coop + cost + target, 
@@ -73,15 +65,7 @@ x.low <- setx(z.out, cost = 1)
 x.high <- setx(z.out, cost = 4)
 
 
-s.out <- sim(z.out, x = x.low, x1 = x.high)
-
-
-#
-plot(s.out)
-summary(z.out)
-vcov(z.out)
-coef(z.out)
-
+s.out <- sim(z.out, x = x.low, x1 = x.high, num = 10)
 #
 x.low
 x.high
@@ -91,45 +75,28 @@ z.out <- zelig(list(
                     mu2 = export ~ cost + target
                     ), 
                model = "bprobit",
-               data = sanction
+               data = sanction[1:10, ]
                )
 
 x.out <- setx(z.out)
 
-s.out <- sim(z.out, x = x.out)
+s.out <- sim(z.out, x = x.out, num = 10)
 
+summary(s.out)
 
 # zelig results
-plot(s.out)
-summary(z.out)
-vcov(z.out)
-coef(z.out)
-
-# setx results
-x.out
-
 z.out <- zelig(list(
                     mu1 = import ~ tag(coop, "coop") + tag(cost, "cost") + tag (target, "target"),
                     mu2 = export ~ tag(coop, "coop") + tag(cost, "cost") + tag (target, "target")
                     ), 
                model = "bprobit",
-               data = sanction
+               data = sanction[1:10, ]
                )
-
 x.out <- setx(z.out)
 
-s.out <- sim(z.out, x = x.out)
-
+s.out <- sim(z.out, x = x.out, num = 10)
 
 #
-plot(s.out)
-summary(z.out)
-vcov(z.out)
-coef(z.out)
-
-# setx results
-x.out
-
 data(mexico)
 
 z.out1 <- zelig(as.factor(vote88) ~ pristr + othcok + othsocok, model = "mlogit", 
@@ -140,13 +107,7 @@ x.weak <- setx(z.out1, pristr = 1)
 x.strong <- setx(z.out1, pristr = 3)
 
 
-s.out1 <- sim(z.out1, x = x.strong, x1 = x.weak)
-
-summary(z.out1)
-vcov(z.out1)
-coef(z.out1)
-x.weak
-x.strong
+s.out1 <- sim(z.out1, x = x.strong, x1 = x.weak, num = 10)
 
 z.out2 <- zelig(list(id(vote88,"1")~pristr + othcok, id(vote88,"2")~othsocok), model = "mlogit", 
                data = mexico)
@@ -158,13 +119,6 @@ x.strong <- setx(z.out2, pristr = 3)
 s.out2 <- sim(z.out2, x = x.strong, x1 = x.weak)
 
 #
-summary(z.out2)
-vcov(z.out2)
-coef(z.out2)
-x.weak
-x.strong
-
-
 z.out1 <- zelig(
                 cost ~ mil + coop,
                 model = "ologit", 
@@ -177,7 +131,6 @@ x.high <- setx(z.out1, coop = 4)
 s.out1 <- sim(z.out1, x = x.low, x1 = x.high)
 
 summary(z.out1)
-plot(s.out1)
 
 sanction$ncost <- factor(
                          sanction$ncost,
