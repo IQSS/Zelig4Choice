@@ -1,4 +1,9 @@
+#' Describe the Citation of the \code{blogit} Model
 #' @S3method describe blogit
+#' @usage \method{describe}{blogit}(...)
+#' @param ... dummy parameters
+#' @return a \code{description} object used to cite the \code{blogit} model
+#' @author Matt Owen, Olivia Lau, and Kosuke Imai
 #' @export
 describe.blogit <- function(...) {
   text <- "Bivariate Logistic Regression for Dichotomous Dependent Variables"
@@ -30,8 +35,13 @@ describe.blogit <- function(...) {
        )
 }
 
+#' Describe the Citation of the \code{bprobit} Model
 #' @S3method describe bprobit
+#' @usage \method{describe}{bprobit}(...)
 #' @export
+#' @param ... dummy parameters
+#' @return a \code{description} object used to cite the \code{bprobit} model
+#' @author Matt Owen, Olivia Lau, and Kosuke Imai
 describe.bprobit <- function(...) {
   text <- "Bivariate Probit Regression for Dichotomous Dependent Variables"
 
@@ -62,8 +72,13 @@ describe.bprobit <- function(...) {
        )
 }
 
+#' Provide Citation Information for the ``blogit'' Model
 #' @S3method describe mlogit
+#' @usage \method{describe}{mlogit}(...)
+#' @param ... dummy parameters
+#' @return a list
 #' @export
+#' @author Matt Owen \email{mowen@@iq.harvard.edu}
 describe.mlogit <- function(...) {
   category <- "multinomial"
   description  <- "Multinomial Logistic Regression for Dependent Variables with Unordered Categorical Values"

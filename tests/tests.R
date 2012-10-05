@@ -15,7 +15,7 @@ z.out <- zelig(
 x.low <- setx(z.out, cost = 1)
 x.high <- setx(z.out, cost = 4)
 
-s.out <- sim(z.out, x = x.low, x1 = x.high, num = 10)
+s.out <- sim(z.out, x = x.low, x1 = x.high, num = 100)
 
 
 
@@ -65,7 +65,7 @@ x.low <- setx(z.out, cost = 1)
 x.high <- setx(z.out, cost = 4)
 
 
-s.out <- sim(z.out, x = x.low, x1 = x.high, num = 10)
+s.out <- sim(z.out, x = x.low, x1 = x.high, num = 100)
 #
 x.low
 x.high
@@ -80,7 +80,7 @@ z.out <- zelig(list(
 
 x.out <- setx(z.out)
 
-s.out <- sim(z.out, x = x.out, num = 10)
+s.out <- sim(z.out, x = x.out, num = 100)
 
 summary(s.out)
 
@@ -94,7 +94,7 @@ z.out <- zelig(list(
                )
 x.out <- setx(z.out)
 
-s.out <- sim(z.out, x = x.out, num = 10)
+s.out <- sim(z.out, x = x.out, num = 100)
 
 #
 data(mexico)
@@ -107,7 +107,7 @@ x.weak <- setx(z.out1, pristr = 1)
 x.strong <- setx(z.out1, pristr = 3)
 
 
-s.out1 <- sim(z.out1, x = x.strong, x1 = x.weak, num = 10)
+s.out1 <- sim(z.out1, x = x.strong, x1 = x.weak, num = 100)
 
 z.out2 <- zelig(list(id(vote88,"1")~pristr + othcok, id(vote88,"2")~othsocok), model = "mlogit", 
                data = mexico)
