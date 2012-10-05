@@ -7,12 +7,12 @@
 #' Package: \tab ZeligChoice\cr
 #' Version: \tab 0.7-0\cr
 #' Date: \tab 2012-10-05\cr
-#' Depends: Zelig (>= 4.0-11), VGAM\cr
+#' Depends: Zelig (>= 4.0-11), VGAM (>= 0.8-4)\cr
 #' License: \tab GPL version 2 or newer\cr
 #' URL: \tab http://gking.harvard.edu/zelig\cr
 #' }
 #'
-#' Add-on pack for Zelig, containing a multinomial models:
+#' Add-on pack for Zelig, containing models:
 #' \tabular{ll}{
 #' blogit: \tab Bivariate Logist Model, implemented by ``vglm'' \cr
 #' bprobit: \tab Bivariate Probit Model, implemented by ``vglm'' \cr

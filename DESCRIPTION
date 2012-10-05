@@ -1,6 +1,6 @@
 Package: ZeligChoice
 Maintainer: <mowen@iq.harvard.edu>
-License: GPL
+License: GPL (>=2)
 Title: Zelig Choice Models
 Type: Package
 LazyLoad: yes
