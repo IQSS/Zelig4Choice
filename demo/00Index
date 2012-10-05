@@ -1,2 +1,5 @@
 blogit             Bivariate Logit regression and simulation 
 bprobit            Bivariate Probit regression and simulation 
+mlogit             Multinomial Logit regression and simulation
+ologit             Ordinal Logit regression and simulation 
+oprobit            Ordinal Probit regression and simulation 
