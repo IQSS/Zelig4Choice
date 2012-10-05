@@ -20,7 +20,7 @@ qi.mlogit <- function(obj, x=NULL, x1=NULL, y=NULL, num=1000, param=NULL) {
   all.coef <- NULL
 
   # ...
-  v <- .construct.v(constraints, ndim)
+  v <- ZeligChoice:::construct.v(constraints, ndim)
 
   # put all indexed lists in the appropriate section
   for (i in 1:ndim)
@@ -36,10 +36,10 @@ qi.mlogit <- function(obj, x=NULL, x1=NULL, y=NULL, num=1000, param=NULL) {
   cnames <- paste('Pr(Y=', cnames, ')', sep='')
 
   #
-  ev1 <- .compute.ev(fitted, constraints, all.coef, x, ndim, cnames)
-  ev2 <- .compute.ev(fitted, constraints, all.coef, x1, ndim, cnames)
-  pv1 <- .compute.pv(fitted, ev1, ynames)
-  pv2 <- .compute.pv(fitted, ev2, ynames)
+  ev1 <- ZeligChoice:::ev.mlogit(fitted, constraints, all.coef, x, ndim, cnames)
+  ev2 <- ZeligChoice:::ev.mlogit(fitted, constraints, all.coef, x1, ndim, cnames)
+  pv1 <- ZeligChoice:::pv.mlogit(fitted, ev1, ynames)
+  pv2 <- ZeligChoice:::pv.mlogit(fitted, ev2, ynames)
 
   list(
        "Expected Values: E(Y|X)" = ev1,
@@ -59,7 +59,7 @@ qi.mlogit <- function(obj, x=NULL, x1=NULL, y=NULL, num=1000, param=NULL) {
 #' @param ndim 
 #' @return a list of character-vectors
 #' @author Matt Owen and Olivia Lau and Kosuke Imai
-.construct.v <- function(constraints, ndim) {
+construct.v <- function(constraints, ndim) {
   v <- rep(list(NULL), ndim)
 
   names <- names(constraints)
@@ -90,7 +90,7 @@ qi.mlogit <- function(obj, x=NULL, x1=NULL, y=NULL, num=1000, param=NULL) {
 #' @param cnames a character-vector specifying the names of the columns
 #' @return a matrix of simulated values
 #' @author Matt Owen and Olivia Lau and Kosuke Imai \email{mowen@@iq.harvard.edu}
-.compute.ev <- function (fitted, constraints, all.coef, x, ndim, cnames) {
+ev.mlogit <- function (fitted, constraints, all.coef, x, ndim, cnames) {
   if (is.null(x))
     return(NA)
 
@@ -127,7 +127,7 @@ qi.mlogit <- function(obj, x=NULL, x1=NULL, y=NULL, num=1000, param=NULL) {
 #' @param ynames ???
 #' @return a vector of simulated values
 #' @author Matt Owen and Olivia Lau and Kosuke Imai \email{mowen@@iq.harvard.edu}
-.compute.pv <- function (fitted, ev, ynames) {
+pv.mlogit <- function (fitted, ev, ynames) {
   if (all(is.na(ev)))
     return(NA)
 
