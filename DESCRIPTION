@@ -24,7 +24,6 @@ Collate:
     'zelig2blogit.R'
     'zelig2bprobit.R'
     'common-methods.R'
-    'ordinal.zelig-package.R'
     'param.ologit.R'
     'param.oprobit.R'
     'plot.sim.ologit.R'
