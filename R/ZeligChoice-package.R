@@ -1,7 +1,7 @@
 #' Zelig Regressions for Discrete Choices
 #'
 #' ZeligChoice extends the Zelig Software Suite with five models used to analyze
-#' models discrete outcomes.
+#' discrete outcomes.
 #'
 #' \tabular{ll}{
 #' Package: \tab ZeligChoice\cr
@@ -9,10 +9,10 @@
 #' Date: \tab 2012-10-05\cr
 #' Depends: Zelig (>= 4.0-11), VGAM (>= 0.8-4)\cr
 #' License: \tab GPL version 2 or newer\cr
-#' URL: \tab http://gking.harvard.edu/zelig\cr
+#' URL: \tab http://projects.iq.harvard.edu/zelig\cr
 #' }
 #'
-#' Add-on pack for Zelig, containing models:
+#' This package contains the following models:
 #' \tabular{ll}{
 #' blogit: \tab Bivariate Logist Model, implemented by ``vglm'' \cr
 #' bprobit: \tab Bivariate Probit Model, implemented by ``vglm'' \cr
@@ -25,8 +25,10 @@
 #' @aliases ZeligChoice
 #' @docType package
 #' @author
-#' Matt Owen \email{mowen@@iq.harvard.edu}, Kosuke Imai, Olivia Lau and Gary King 
-#' Maintainer: Matt Owen \email{mowen@@iq.harvard.edu}
+#' Matt Owen \email{mowen@@iq.harvard.edu},
+#' Kosuke Imai \email{kimai@@princeton.edu},
+#' Olivia Lau \email{olivia.lau@@post.harvard.edu} and
+#' Gary King \email{gking@harvard.edu}
 #' @examples
 #' demo("blogit")
 #' demo("bprobit")
