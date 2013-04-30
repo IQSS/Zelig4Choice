@@ -13,14 +13,21 @@ plot.sim.ologit <- function(x, ..., alt.color=NULL) {
 
   # number of factors
   num.factors <- ncol(qi$ev1)
-  alt.colors <- rainbow(num.factors)
+  if(is.null(alt.color)){
+    alt.color <- rainbow(num.factors)
+  }
+ 
+  # These are the current color defaults
+  # Need to add argument to overwrite
+  color.x <- rgb(242, 122, 94, maxColorValue=255)
+  color.x1 <- rgb(100, 149, 237, maxColorValue=255)
 
-  if (is.null(x$x))
+  if (is.null(x$x)){
     # if there is no x, then something is probably wrong
     # and we just quit
     return(par(original.par))
 
-  else if (is.null(x$x1) || is.na(x$x1)) {
+  }else if (is.null(x$x1) || is.na(x$x1)) {
     panels <- matrix(c(1, 2), nrow=2)
   }
     # the plotting device:
@@ -33,7 +40,7 @@ plot.sim.ologit <- function(x, ..., alt.color=NULL) {
 
 
   else {
-    panels <- matrix(c(1, 3, 5, 2, 4, 5), ncol=2)
+    panels <- matrix(1:6, nrow=3, ncol=2, byrow=TRUE)
     # the plotting device:
     #
     # +-----------+
@@ -41,30 +48,55 @@ plot.sim.ologit <- function(x, ..., alt.color=NULL) {
     # +-----+-----+
     # |  3  |  4  |
     # +-----+-----+
-    # |   5       |
+    # |  5  |  6  |
     # +-----------+
   }
 
   # layout graphing device
   layout(panels)
 
-  # Predicted Values for X
-  .plot.pv(summ, label="Predicted Values (for X): Y=j|X", alt.colors=alt.colors)
+  is.one.na<-function(x){
+  	if (length(x)==1) 
+  	  if (is.na(x))
+  	    return(TRUE)
+  	    
+  	return(FALSE)
+  }
+
+
+  pr<-x$qi$pv1
+  if(!is.null(pr)) pr<-as.character(pr)
+  pr1<-x$qi$pv2
+  if(!is.null(pr1) & !is.one.na(pr1)) pr1<-as.character(pr1)
 
   # Predicted Values for X
-  .plot.pv(summ, label="Predicted Values (for X1): Y=j|X1", alt.colors=alt.colors)
+  if(!is.null(pr))  Zelig:::simulations.plot( pr, main = "Predicted Values: Y|X", col=color.x,  line.col = "black")
+
+  # Predicted Values for X1
+  if(!is.null(pr1)) Zelig:::simulations.plot( pr1, main = "Predicted Values: Y|X1", col=color.x1, line.col = "black")
 
   # Expected Values for X
-  .plot.ev(qi$ev1, label="Expected Values (for X): Pr(Y=j|X)", alt.colors=alt.colors)
+  .plot.ev(qi$ev1, label="Expected Values: Pr(Y=j|X)", alt.colors=alt.color)
   
   # Expected Values for X1
-  .plot.ev(qi$ev2, label="Expected Values (for X1): Pr(Y=j|X1)", alt.colors=alt.colors)
+  .plot.ev(qi$ev2, label="Expected Values: Pr(Y=j|X1)", alt.colors=alt.color)
+
+  # Compare Predicted Values Distributions
+
+    if(!is.null(pr) & !is.null(pr1) & !is.one.na(pr) & !is.one.na(pr1) )
+	  Zelig:::simulations.plot(
+                      y=pr, y1=pr1,
+                      xlab="", ylab="",
+      				  main = "Comparison of Y|X and Y|X1",
+      				  # Note that we are adding transparency to this
+      				  col = paste(c(color.x, color.x1), "80", sep=""),
+      				  line.col = "black")
 
   # First Differences
   .plot.ev(
            qi$fd,
            label="First Differences: Pr(Y=j|X1) - Pr(Y=j|X)",
-           alt.colors=alt.colors
+           alt.colors=alt.color
            )
 
   # ignore risk ratios
@@ -74,7 +106,7 @@ plot.sim.ologit <- function(x, ..., alt.color=NULL) {
   par(original.par)
 }
 
-
+# Currently Replaced by Zelig:::simulations.plot()
 #' Plot Predicted Values
 #' @param summ a matrix 
 #' @param label a character-string specifying which QI to extract
