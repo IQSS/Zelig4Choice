@@ -11,7 +11,7 @@
   a list
 }
 \description{
-  Provide Citation Information for the ``blogit'' Model
+  Provide Citation Information for the ``mlogit'' Model
 }
 \author{
   Matt Owen \email{mowen@iq.harvard.edu}

@@ -5,9 +5,9 @@
 #'
 #' \tabular{ll}{
 #' Package: \tab ZeligChoice\cr
-#' Version: \tab 0.7-0\cr
-#' Date: \tab 2012-10-05\cr
-#' Depends: Zelig (>= 4.0-11), VGAM (>= 0.8-4)\cr
+#' Version: \tab 0.8-0\cr
+#' Date: \tab 2013-05-01\cr
+#' Depends: Zelig (>= 4.1-2), VGAM (>= 0.8-4)\cr
 #' License: \tab GPL version 2 or newer\cr
 #' URL: \tab http://projects.iq.harvard.edu/zelig\cr
 #' }
