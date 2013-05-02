@@ -76,10 +76,10 @@ plot.sim.ologit <- function(x, ..., alt.color=NULL) {
   if(!is.null(pr1)) Zelig:::simulations.plot( pr1, main = "Predicted Values: Y|X1", col=color.x1, line.col = "black")
 
   # Expected Values for X
-  .plot.ev(qi$ev1, label="Expected Values: Pr(Y=j|X)", alt.colors=alt.color)
+  .plot.ev(qi$ev1, main="Expected Values: Pr(Y=j|X)", alt.colors=alt.color)
   
   # Expected Values for X1
-  .plot.ev(qi$ev2, label="Expected Values: Pr(Y=j|X1)", alt.colors=alt.color)
+  .plot.ev(qi$ev2, main="Expected Values: Pr(Y=j|X1)", alt.colors=alt.color)
 
   # Compare Predicted Values Distributions
 
@@ -95,7 +95,7 @@ plot.sim.ologit <- function(x, ..., alt.color=NULL) {
   # First Differences
   .plot.ev(
            qi$fd,
-           label="First Differences: Pr(Y=j|X1) - Pr(Y=j|X)",
+           main="First Differences: Pr(Y=j|X1) - Pr(Y=j|X)",
            alt.colors=alt.color
            )
 
@@ -131,7 +131,7 @@ plot.sim.ologit <- function(x, ..., alt.color=NULL) {
 #' Plot Expected Values
 #' @param ev a matrix containing information about simulated expected values
 #' @param label a character-string specifying the plot's title
-.plot.ev <- function(ev, label="", alt.colors=NULL) {
+.plot.ev <- function(ev, xlab="", ylab="", main="", alt.colors=NULL ) {
   if (is.na(ev) || is.null(ev))
     return()
 
@@ -141,7 +141,7 @@ plot.sim.ologit <- function(x, ..., alt.color=NULL) {
   top <- max(unlist(Map(function (x) max(x$y), dense)))
 
   plot(dense[[1]], col = alt.colors,
-       main = label,
+       xlab=xlab, ylab=ylab, main=main,       
        xlim = c(left, right),
        ylim = c(0, top)
        )
