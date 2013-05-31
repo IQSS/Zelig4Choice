@@ -6,7 +6,7 @@
 #' @return a list to be coerced into a zelig.call object
 #' @export
 #' @author Matt Owen \email{mowen@@iq.harvard.edu}
-zelig2bprobit <- function(formula, ..., data) {
+zelig2bprobit <- function(formula, weights=NULL, ..., data) {
   formula <- parse.formula(formula, "bprobit")
   tmp <- cmvglm(formula, "bprobit", 3)
 
@@ -17,6 +17,7 @@ zelig2bprobit <- function(formula, ..., data) {
        
        formula = tmp$formula,
        family  = bprobit,
+       weights = weights,
        data = data,
        constraints = tmp$constraints
        )

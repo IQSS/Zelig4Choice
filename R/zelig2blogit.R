@@ -6,7 +6,7 @@
 #' @return a list to be coerced into a zelig.call object
 #' @export
 #' @author Matt Owen \email{mowen@@iq.harvard.edu}
-zelig2blogit <- function(formula, ..., data) {
+zelig2blogit <- function(formula, weights=NULL, ..., data) {
   formula <- parse.formula(formula, "blogit")
   tmp <- cmvglm(formula, "blogit", 3)
 
@@ -16,6 +16,7 @@ zelig2blogit <- function(formula, ..., data) {
        .function = "vglm",
        
        formula = tmp$formula,
+       weights = weights,
        family  = blogit,
        data = data,
        constraints = tmp$constraints

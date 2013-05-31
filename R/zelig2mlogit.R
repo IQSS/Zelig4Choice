@@ -4,7 +4,7 @@
 #' @param data a data.frame 
 #' @return a list specifying '.function'
 #' @export
-zelig2mlogit <- function (formula, ..., data) {
+zelig2mlogit <- function (formula, weights=NULL, ..., data) {
 
   .formula <- parse.formula(formula, "mlogit", data)
   .tt <- terms(.formula)
@@ -18,6 +18,7 @@ zelig2mlogit <- function (formula, ..., data) {
 
        formula = cmv$formula,
        constraints = cmv$constraints,
+       weights=weights,
 
        family = VGAM::multinomial,
        data = data
