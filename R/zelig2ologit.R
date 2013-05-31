@@ -7,13 +7,13 @@
 #' @return a list to be coerced into a zelig.call object
 #' @export
 #' @author Matt Owen \email{mowen@@iq.harvard.edu}
-zelig2ologit <- function(formula, weights=NULL, ..., data) {
+zelig2ologit <- function(formula, repweights=NULL, ..., data) {
   list(
        .function = "polr",
 
        formula = update(formula, as.factor(.) ~ .),
        method  = "logistic",
-       weights = weights,
+       weights = repweights,
        Hess = TRUE,
        data = data
        )
