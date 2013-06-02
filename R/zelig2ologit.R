@@ -6,10 +6,10 @@
 #' @param data a \code{data.frame}
 #' @return a list to be coerced into a zelig.call object
 #' @export
-#' @author Matt Owen \email{mowen@@iq.harvard.edu}
+#' @author James Honaker \email{zelig-zee@@iq.harvard.edu}
 zelig2ologit <- function(formula, weights=NULL, repweights=NULL, ..., data) {
 
-  built<-zeligBuildWeights(weights=weights, repweights=repweights, allowweights=FALSE)
+  built<-zeligBuildWeights(weights=weights, repweights=repweights, allowweights=FALSE, data=data)
 
   list(
        .function = "polr",

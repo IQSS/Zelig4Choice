@@ -12,7 +12,7 @@ zelig2mlogit <- function (formula, weights=NULL, repweights=NULL, ..., data) {
   ndim <- length(attr(.tt, "depFactors")$depLevels)
 
   cmv <- cmvglm(.formula, "mlogit", ndim, data, .fact)
-  built<-zeligBuildWeights(weights=weights, repweights=repweights, zeros="epsilon")
+  built<-zeligBuildWeights(weights=weights, repweights=repweights, zeros="epsilon", data=data)
 
 
   list(
