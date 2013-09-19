@@ -1,16 +1,16 @@
 Package: ZeligChoice
-Maintainer: James Honaker <jhonaker@iq.harvard.edu>
+Maintainer: James Honaker <zelig-zee@iq.harvard.edu>
 License: GPL (>=2)
 Title: Zelig Choice Models
 Type: Package
 LazyLoad: yes
-Author: Matt Owen \email{mowen@@iq.harvard.edu}, Kosuke Imai, Olivia Lau and Gary King
+Author: James Honaker \email{zelig-zee@@iq.harvard.edu} Matt Owen, Kosuke Imai, Olivia Lau and Gary King
 Description: Add-on package for Zelig. Enables the use of a variety of logit
     and probit regressions.
 Version: 0.8-0
-Date: 2013-05-01
+Date: 2013-09-19
 Depends:
-    Zelig (>= 4.1-2),
+    Zelig (>= 4.2-0),
     VGAM (>= 0.8-4),
     R (>= 2.10)
 Collate:
