@@ -2,7 +2,7 @@
 \alias{zelig2ologit}
 \title{Interface between \code{ologit} model and Zelig}
 \usage{
-  zelig2ologit(formula, weights=NULL, repweights=NULL, weights = 1, ..., data)
+  zelig2ologit(formula, weights=NULL, repweights=NULL, ..., data)
 }
 \arguments{
   \item{formula}{a \code{formula}}
