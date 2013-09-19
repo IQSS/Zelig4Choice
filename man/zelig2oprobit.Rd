@@ -2,12 +2,14 @@
 \alias{zelig2oprobit}
 \title{Interface between \code{oprobit} model and Zelig}
 \usage{
-  zelig2oprobit(formula, weights = 1, ..., data)
+  zelig2oprobit(formula, weights=NULL, repweights=NULL, ..., data)
 }
 \arguments{
   \item{formula}{a \code{formula}}
-
-  \item{weights}{a numeric vector}
+\item{weights}{A set of non-negative value weights.  Overrides repweights if defined.}
+\item{repweights}{A set of whole number (non-negative integer) weights.  Useful if 
+   weights are just for making copies of or deleting certain observations or for
+   frequency weights.}
 
   \item{...}{ignored parameters}
 

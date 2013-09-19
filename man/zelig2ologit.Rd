@@ -2,12 +2,15 @@
 \alias{zelig2ologit}
 \title{Interface between \code{ologit} model and Zelig}
 \usage{
-  zelig2ologit(formula, weights = 1, ..., data)
+  zelig2ologit(formula, weights=NULL, repweights=NULL, weights = 1, ..., data)
 }
 \arguments{
   \item{formula}{a \code{formula}}
+\item{weights}{A set of non-negative value weights.  Overrides repweights if defined.}
+\item{repweights}{A set of whole number (non-negative integer) weights.  Useful if 
+   weights are just for making copies of or deleting certain observations or for
+   frequency weights.}
 
-  \item{weights}{a numeric vector}
 
   \item{...}{ignored parameters}
 
