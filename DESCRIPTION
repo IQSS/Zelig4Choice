@@ -8,11 +8,11 @@ Author: James Honaker \email{zelig-zee@@iq.harvard.edu} Matt Owen, Kosuke Imai, 
 Description: Add-on package for Zelig. Enables the use of a variety of logit
     and probit regressions.
 Version: 0.8-0
-Date: 2013-09-19
+Date: 2013-09-20
 Depends:
     Zelig (>= 4.2-0),
-    VGAM (>= 0.8-4),
-    R (>= 2.10)
+    R (>= 2.10),
+    VGAM (>= 0.8-4)
 Collate:
     'blogit.R'
     'bprobit.R'
