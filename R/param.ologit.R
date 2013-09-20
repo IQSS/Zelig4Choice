@@ -36,7 +36,10 @@ param.ologit <- function(obj, num=1000, ...) {
        
        alpha = NULL,
        link = NULL,
-       linkinv = ZeligChoice:::ologit.linkinverse
+       #linkinv = ZeligChoice:::ologit.linkinverse
+       # CRAN policy on self referential ::: 
+       linkinv = ologit.linkinverse
+
        )
 }
 

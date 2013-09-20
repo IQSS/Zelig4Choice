@@ -36,7 +36,9 @@ param.oprobit <- function(obj, num=1000, ...) {
        
        alpha = NULL,
        link = NULL,
-       linkinv = ZeligChoice:::oprobit.linkinverse
+       # linkinv = ZeligChoice:::oprobit.linkinverse
+       # CRAN policy on self referential :::
+       linkinv = oprobit.linkinverse
        )
 }
 

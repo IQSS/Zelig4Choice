@@ -20,7 +20,8 @@ qi.mlogit <- function(obj, x=NULL, x1=NULL, y=NULL, num=1000, param=NULL) {
   all.coef <- NULL
 
   # ...
-  v <- ZeligChoice:::construct.v(constraints, ndim)
+#  v <- ZeligChoice:::construct.v(constraints, ndim)
+  v <- construct.v(constraints, ndim)
 
   # put all indexed lists in the appropriate section
   for (i in 1:ndim)
@@ -36,10 +37,19 @@ qi.mlogit <- function(obj, x=NULL, x1=NULL, y=NULL, num=1000, param=NULL) {
   cnames <- paste('Pr(Y=', cnames, ')', sep='')
 
   #
-  ev1 <- ZeligChoice:::ev.mlogit(fitted, constraints, all.coef, x, ndim, cnames)
-  ev2 <- ZeligChoice:::ev.mlogit(fitted, constraints, all.coef, x1, ndim, cnames)
-  pv1 <- ZeligChoice:::pv.mlogit(fitted, ev1, ynames)
-  pv2 <- ZeligChoice:::pv.mlogit(fitted, ev2, ynames)
+# CRAN policy to avoid self referential :::, even if harmless and clarifying
+# because "almost never need[ed]"
+#  ev1 <- ZeligChoice:::ev.mlogit(fitted, constraints, all.coef, x, ndim, cnames)
+#  ev2 <- ZeligChoice:::ev.mlogit(fitted, constraints, all.coef, x1, ndim, cnames)
+#  pv1 <- ZeligChoice:::pv.mlogit(fitted, ev1, ynames)
+#  pv2 <- ZeligChoice:::pv.mlogit(fitted, ev2, ynames)
+#  so:
+  ev1 <- ev.mlogit(fitted, constraints, all.coef, x, ndim, cnames)
+  ev2 <- ev.mlogit(fitted, constraints, all.coef, x1, ndim, cnames)
+  pv1 <- pv.mlogit(fitted, ev1, ynames)
+  pv2 <- pv.mlogit(fitted, ev2, ynames)
+
+
 
   list(
        "Expected Values: E(Y|X)" = ev1,

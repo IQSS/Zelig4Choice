@@ -85,9 +85,12 @@ qi.blogit <- function(obj, x, x1=NULL, y=NULL, num=1000, param=NULL) {
                  )
 
   #
-  ev <- ZeligChoice:::.pp(s4object, constr, all.coef, as.matrix(x))
-  pr <- ZeligChoice:::.pr(ev)
-  
+# CRAN Policy against self referential :::
+#  ev <- ZeligChoice:::.pp(s4object, constr, all.coef, as.matrix(x))
+#  pr <- ZeligChoice:::.pr(ev)
+  ev <- .pp(s4object, constr, all.coef, as.matrix(x))
+  pr <- .pr(ev)
+
   #
   qi <- list("Predicted Probabilities: Pr(Y1=k|X)" = ev,
              "Predicted Values: Y=k|X" = pr 
@@ -96,7 +99,9 @@ qi.blogit <- function(obj, x, x1=NULL, y=NULL, num=1000, param=NULL) {
   # compute first-differences and risk ratios
   if (!is.null(x1)) {
     # evaluate probabilities using x1
-    ev1 <- ZeligChoice:::.pp(s4object, constr, all.coef, as.matrix(x1))
+    # CRAN Policy against self referential :::
+    # ev1 <- ZeligChoice:::.pp(s4object, constr, all.coef, as.matrix(x1))
+    ev1 <- .pp(s4object, constr, all.coef, as.matrix(x1))
 
     # compute first differences
     fd <- ev1-ev

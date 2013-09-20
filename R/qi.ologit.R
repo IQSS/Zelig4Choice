@@ -39,12 +39,18 @@ qi.ologit <- function(obj, x, x1=NULL, y=NULL, num=1000, param=NULL) {
   sim.zeta[,-1] <- exp(sim.theta[,-1])
   sim.zeta <- t(apply(sim.zeta, 1, cumsum))
 
-
-  # compute expected values, etc.
-  ev1 <- ZeligChoice:::.compute.ev(z, x, num, param, eta1, sim.zeta)
-  pr1 <- ZeligChoice:::.compute.pr(z, x, num, param, eta1, sim.zeta)
-  ev2 <- ZeligChoice:::.compute.ev(z, x1, num, param, eta2, sim.zeta)
-  pr2 <- ZeligChoice:::.compute.pr(z, x1, num, param, eta2, sim.zeta)
+# compute expected values, etc.
+# CRAN policy to avoid self referential :::, even if harmless and clarifying
+# because "almost never need[ed]"
+#  ev1 <- ZeligChoice:::.compute.ev(z, x, num, param, eta1, sim.zeta)
+#  pr1 <- ZeligChoice:::.compute.pr(z, x, num, param, eta1, sim.zeta)
+#  ev2 <- ZeligChoice:::.compute.ev(z, x1, num, param, eta2, sim.zeta)
+#  pr2 <- ZeligChoice:::.compute.pr(z, x1, num, param, eta2, sim.zeta)
+#  so:
+  ev1 <- .compute.ev(z, x, num, param, eta1, sim.zeta)
+  pr1 <- .compute.pr(z, x, num, param, eta1, sim.zeta)
+  ev2 <- .compute.ev(z, x1, num, param, eta2, sim.zeta)
+  pr2 <- .compute.pr(z, x1, num, param, eta2, sim.zeta)
 
 
   # return value
