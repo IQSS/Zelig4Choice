@@ -7,8 +7,8 @@ LazyLoad: yes
 Author: James Honaker \email{zelig-zee@@iq.harvard.edu} Matt Owen, Kosuke Imai, Olivia Lau and Gary King
 Description: Add-on package for Zelig. Enables the use of a variety of logit
     and probit regressions.
-Version: 0.8-1
-Date: 2013-09-20
+Version: 0.8-2
+Date: 2013-10-13
 Depends:
     Zelig (>= 4.2-0),
     R (>= 2.10),
